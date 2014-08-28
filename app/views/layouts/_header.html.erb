@@ -1,0 +1,14 @@
+<header>
+  <div class="left-menu">
+    <%= render "layouts/static_menu" %>
+    <%= render "layouts/categories_menu" %>
+  </div>
+  <div class="logo">
+    <%= link_to image_tag("logo.png", alt: "Pizza Brothers"), root_path %>
+  </div>
+  <div class="right-menu">
+    <%= render "layouts/pizza_builder" %>
+    <%= render "layouts/cart" %>
+  </div>
+  <div class="clear"></div>
+</header>

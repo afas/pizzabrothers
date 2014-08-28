@@ -1,0 +1,5 @@
+<%= content_tag :h1, "Конструктор пиццы" %>
+
+<% Ingridient.collection.each do |ingridient| %>
+    <%= image_tag ingridient.image, alt: ingridient.name %>
+<% end %>
