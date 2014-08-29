@@ -1,5 +1,10 @@
 <div class="menu-item product">
-  <%= image_tag "pizza.png" %>
+  <%= image_tag "salad.png" %>
   <%= content_tag :h3, product.name %>
   <%= content_tag :p, product.description %>
+
+  <div class="order-button">
+    Заказать за <span class="price" id="<%= product.id %>"><%= product.price %><%= content_tag :p, "p", class: "money" %></span>
+  </div>
+
 </div>

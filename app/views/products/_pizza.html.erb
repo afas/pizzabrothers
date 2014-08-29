@@ -2,4 +2,10 @@
   <%= image_tag "pizza.png" %>
   <%= content_tag :h3, pizza.name %>
   <%= content_tag :p, pizza.description %>
+
+
+  <div class="order-button">
+    Заказать за <span class="price" id="<%= "#{pizza.id}_classic"%>"><%= pizza.price_classic %><%= content_tag :p, "p", class: "money" %></span>
+    <span class="price price-big" id="<%= "#{pizza.id}_big"%>"> / <%= pizza.price_big %><%= content_tag :p, "p", class: "money" %></span>
+  </div>
 </div>

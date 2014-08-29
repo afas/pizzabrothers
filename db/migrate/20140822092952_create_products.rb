@@ -4,9 +4,9 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :photo
-      t.float :price
-      t.float :price_classic
-      t.float :price_big
+      t.integer :price, :default => 100
+      t.integer :price_classic, :default => 250
+      t.integer :price_big, :default => 350
       t.integer :category_id
 
       t.timestamps

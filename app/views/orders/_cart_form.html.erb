@@ -1,0 +1,60 @@
+<%= form_for(@order) do |f| %>
+    <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+          <ul>
+            <% @order.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <!--Имя-->
+    <!--Телефон-->
+    <!--Адрес-->
+    <!--Email-->
+    <!--Сдача с-->
+    <!--Комментарий-->
+
+    <div class="field">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %>
+      <br>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="field no-margin-right">
+      <%= f.label :address %>
+      <br>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :cash_from %>
+      <br>
+      <%= f.number_field :cash_from %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <br>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="clear"></div>
+    <div class="field">
+      <%= f.label :comment %>
+      <br>
+      <%= f.text_area :comment %>
+    </div>
+    <div class="clear"></div>
+
+    <div class="actions">
+      <%= f.submit "Отправить заказ *" %><br/><br/>
+      <%= content_tag :label, raw("* Согласен с <a href='#' target='_blank'>правилами</a> приобретения товара.") %>
+    </div>
+<% end %>

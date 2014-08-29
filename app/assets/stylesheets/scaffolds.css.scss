@@ -192,6 +192,7 @@ div {
       float: left;
       width: 340px;
       padding: 0 60px 60px 0;
+      position: relative;
 
       img {
         width: 340px;
@@ -215,9 +216,49 @@ div {
         padding-right: 0px;
       }
 
+      .order-button {
+        background: none repeat scroll 0 0 #be0002;
+        border-radius: 3px;
+        color: #fff;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin: 0;
+        padding: 15px 10px;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: 260px;
+        width: 260px;
+        cursor: pointer;
+
+        .money {
+          display: inline;
+          font-size: 17px;
+          font-weight: 300;
+          padding-left: 1px;
+          text-decoration: none;
+          text-transform: none;
+          vertical-align: text-top;
+        }
+
+      }
+
     }
 
     .pizza {
+      .order-button {
+        .price-big {
+          display: none;
+        }
+      }
+
+      .show-big-price {
+        .price-big {
+          display: inline;
+        }
+      }
 
     }
 

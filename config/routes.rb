@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders
+
   get 'my_cart' => 'cart#my_cart', as: :my_cart
   get 'my_pizza' => 'cart#pizza_builder', as: :my_pizza
   # get 'my_pizza' => 'pizza_builder#pizza_builder', as: :my_pizza

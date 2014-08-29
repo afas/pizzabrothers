@@ -1,0 +1,61 @@
+.new_order {
+  .field {
+    font-family: 'Ubuntu', sans-serif;
+    float: left;
+    margin: 0 60px 60px 0;
+    position: relative;
+    width: 340px;
+
+    label {
+      color: #be0002;
+      font-size: 16px;
+    }
+
+    input, textarea {
+      background: none repeat scroll 0 0 #f9f9f9;
+      border: none;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 65px;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    textarea {
+      width: 1140px;
+    }
+  }
+
+  .actions {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+
+    label, a {
+      color: #be0002;
+      font-size: 16px;
+    }
+
+    input[type='submit'] {
+      background: none repeat scroll 0 0 #be0002;
+      border-radius: 3px;
+      border: none;
+      color: #fff;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+      padding: 15px 10px;
+      text-align: center;
+      text-transform: uppercase;
+      top: 260px;
+      width: 340px;
+      cursor: pointer;
+    }
+
+  }
+
+  .no-margin-right {
+    margin-right: 0;
+  }
+}
