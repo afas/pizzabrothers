@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :orders
 
   get 'my_cart' => 'cart#my_cart', as: :my_cart

@@ -1,11 +1,13 @@
 <div class="menu-item pizza">
-  <%= image_tag "pizza.png" %>
+  <%= image_tag pizza.photo_url || "pizza.png" %>
   <%= content_tag :h3, pizza.name %>
   <%= content_tag :p, pizza.description %>
-
+  <% if can?(:manage, pizza) %>
+      <%= link_to "Изменить", edit_product_path(pizza) %> / <%= link_to 'Удалить', pizza, method: :delete, data: {confirm: 'Удаляем?'} %>
+  <% end %>
 
   <div class="order-button">
-    Заказать за <span class="price" id="<%= "#{pizza.id}_classic"%>"><%= pizza.price_classic %><%= content_tag :p, "p", class: "money" %></span>
-    <span class="price price-big" id="<%= "#{pizza.id}_big"%>"> / <%= pizza.price_big %><%= content_tag :p, "p", class: "money" %></span>
+    Заказать за <span class="price" id="<%= "#{pizza.id}_classic" %>"><%= pizza.price_classic %><%= content_tag :p, "p", class: "money" %></span>
+    <span class="price price-big" id="<%= "#{pizza.id}_big" %>"> / <%= pizza.price_big %><%= content_tag :p, "p", class: "money" %></span>
   </div>
 </div>

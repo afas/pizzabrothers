@@ -64,14 +64,16 @@ ru:
       <<: *errors
     capitalized_models:
       order: "Заказ"
+      product: "Товар"
       static: "Страница"
     models:
       order: "заказ"
       static: "cтраницу"
+      product: "товар"
     model:
       order: "Заказ"
       static: "Страница"
-
+      product: "Товар"
     attributes:
       order:
         name: "Представьтесь*"
@@ -81,3 +83,15 @@ ru:
         email: "EMail"
         comment: "Комментарии к заказу"
         order_status_id: "Статус заказа"
+      product:
+        name: "Название"
+        description: "Описание"
+        photo: "Фотография, 340х340, png"
+        price: "Цена"
+        price_classic: "Цена (пицца, стандарт)"
+        price_big: "Цена (пицца, большая)"
+        category_id: "Категория"
+      static:
+        title: "Заголовок"
+        body: "Содержание"
+        short_url: "Короткий адрес"

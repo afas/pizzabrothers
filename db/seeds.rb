@@ -1,4 +1,7 @@
 #encoding: utf-8
+User.create(email: "anton@black-sheep.ru", password: "enlightenment", role: 0)
+User.create(email: "den_27021990@mail.ru", password: "buizelik", role: 0)
+
 Static.create(title: "Акции", short_url: "special")
 Static.create(title: "Доставка и оплата", short_url: "shipping_and_payment")
 Static.create(title: "Пиццерия", short_url: "about")
@@ -56,3 +59,15 @@ Product.create(name: "Спайс унаги", description: "Угорь", categor
 Product.create(name: "Спайс эби", description: "Тигровая креветка", category_id: 2)
 Product.create(name: "Спайс ика", description: "Кальмар", category_id: 2)
 Product.create(name: "Кани спайс", description: "Краб", category_id: 2)
+
+Product.create(name: "Спрайт", description: "Напиток газированный, 0,5 л", category_id: 3)
+Product.create(name: "Кока кола", description: "Напиток газированный, 0,5 л", category_id: 3)
+Product.create(name: "Кока кола лайт", description: "Напиток газированный, 0,5 л", category_id: 3)
+Product.create(name: "Фанта", description: "Напиток газированный, 0,5 л", category_id: 3)
+Product.create(name: "Бонаква", description: "Питьевая вода газированная, 0,5 л", category_id: 3)
+Product.create(name: "Бонаква н/г", description: "Питьевая вода негазированная, 0,5 л", category_id: 3)
+Product.create(name: "Добрый", description: "Сок яблочный, 1 л", category_id: 3)
+Product.create(name: "Добрый", description: "Сок апельсиновый, 1 л", category_id: 3)
+Product.create(name: "Добрый", description: "Сок персик-яблоко, 1 л", category_id: 3)
+Product.create(name: "Добрый", description: "Сок томатный, 1 л", category_id: 3)
+Product.create(name: "Добрый", description: "Сок вишневый, 1 л", category_id: 3)
