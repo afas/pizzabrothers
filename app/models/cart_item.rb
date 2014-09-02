@@ -28,15 +28,35 @@ class CartItem
     @product.name
   end
 
+  def product_id
+    @product.id
+  end
+
+  def size_id
+    @product_size
+  end
+
   def price
-    @product.price
+    case @product_size
+      when 1
+        @product.price_classic
+      when 2
+        @product.price_big
+      else
+        @product.price
+    end
+  end
+
+  def size
+    ProductSize.by_code(@product_size)
+  end
+
+  def count
+    @product_count
   end
 
   def sum
-    @product.price * @product_count
+    self.price * @product_count
   end
 
-  # def all_sizes
-  #   Product.all_sizes(@product.id)
-  # end
 end

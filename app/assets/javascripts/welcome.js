@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    $(".order-button").on("click", function () {
-        console.log("123");
-        $(this).toggleClass("show-big-price");
-    });
+//    $(".order-button").on("click", function () {
+//        console.log("123");
+//        $(this).toggleClass("show-big-price");
+//    });
 
 //    $("#request-type-options li").on("click", function () {
 //        var selected = $(this).html();
@@ -13,5 +13,8 @@ $(document).ready(function () {
 //        $("#request-type .link span").html(selected);
 //        $("#request-type .request-type-options").toggleClass("visible");
 //    });
-
 });
+
+function addProduct(href) {
+    $.get(href);
+}

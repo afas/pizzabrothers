@@ -1,0 +1,12 @@
+<table class="my-cart">
+  <tbody>
+  <% order_items.each do |cart_item| %>
+      <tr>
+        <td class="count"><span onclick="removeProduct('<%= remove_from_cart_path(cart_item.product_id, cart_item.size_id) %>');">-</span> <%= cart_item.count %> <span onclick="addProduct('<%= add_to_cart_path(cart_item.product_id, cart_item.size_id) %>');">+</span></td>
+        <td class="name"><%= cart_item.name %></td>
+        <td class="comment"><%= cart_item.size %></td>
+        <td class="price"><%= cart_item.price %> &#8399;</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

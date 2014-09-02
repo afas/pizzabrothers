@@ -91,6 +91,7 @@ ru:
         price_classic: "Цена (пицца, стандарт)"
         price_big: "Цена (пицца, большая)"
         category_id: "Категория"
+        product_order: "Порядок выдачи"
       static:
         title: "Заголовок"
         body: "Содержание"

@@ -19,5 +19,10 @@ module Pizzabrothers
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
+
+    # ActiveRecord::SessionStore::Session.table_name = 'legacy_session_table'
+    # ActiveRecord::SessionStore::Session.primary_key = 'session_id'
+    # ActiveRecord::SessionStore::Session.data_column_name = 'legacy_session_data'
+
   end
 end

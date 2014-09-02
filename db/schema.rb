@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901155805) do
+ActiveRecord::Schema.define(version: 20140902125813) do
 
   create_table "order_items", force: true do |t|
     t.integer  "order_id",      null: false
@@ -46,7 +46,18 @@ ActiveRecord::Schema.define(version: 20140901155805) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_order", default: 1000
   end
+
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "statics", force: true do |t|
     t.string   "title"

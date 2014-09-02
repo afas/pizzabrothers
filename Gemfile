@@ -42,4 +42,9 @@ gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
 
+gem 'activerecord-session_store'
+
 gem 'proxylocal'
+
+gem 'geocoder'
+gem 'gmaps4rails'

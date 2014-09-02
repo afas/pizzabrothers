@@ -28,6 +28,16 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        @order.add_order_items_from_cart(@cart)
+
+        # if @order.user_create
+        #   User.find(@order.user_id).send_reset_password_instructions
+        # else
+        #   OrderMailer.new_order(@order).deliver
+        # end
+
+        session[:cart] = nil
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else

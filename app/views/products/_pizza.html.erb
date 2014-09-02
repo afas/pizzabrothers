@@ -7,7 +7,6 @@
   <% end %>
 
   <div class="order-button">
-    Заказать за <span class="price" id="<%= "#{pizza.id}_classic" %>"><%= pizza.price_classic %><%= content_tag :p, "p", class: "money" %></span>
-    <span class="price price-big" id="<%= "#{pizza.id}_big" %>"> / <%= pizza.price_big %><%= content_tag :p, "p", class: "money" %></span>
+    Заказать за <span class="price" onclick="addProduct('<%= add_to_cart_path(pizza.id, 1) %>');"><%= pizza.price_classic %></span> / <span class="price price-big" onclick="addProduct('<%= add_to_cart_path(pizza.id, 2) %>');"><%= pizza.price_big %> &#8399;</span>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<table class="my-cart">
+  <tbody>
+  <% order_items.each do |cart_item| %>
+      <tr>
+        <td class="count"><%= cart_item.product_count %></td>
+        <td class="name"><%= cart_item.product.name %></td>
+        <td class="comment"><%= ProductSize.by_code(cart_item.product_size) %></td>
+        <td class="price"><%= cart_item.price %> &#8399;</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

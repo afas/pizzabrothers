@@ -84,16 +84,17 @@ a {
 
       span {
         background: none repeat scroll 0 0 rgb(190, 0, 2);
-        border-radius: 13px;
+        border-radius: 15px;
         color: #fff;
         display: block;
         float: right;
-        font-size: 16px;
-        height: 23px;
+        font-size: 15px;
+        height: 24px;
         line-height: 23px;
         margin-top: -15px;
-        text-align: center;
-        width: 23px;
+        text-align: center !important;
+        width: 24px;
+        font-weight: 700;
       }
 
     }
@@ -179,7 +180,7 @@ a {
 
       .order-button {
         background: none repeat scroll 0 0 #be0002;
-        border-radius: 3px;
+        border-radius: 5px;
         color: #fff;
         font-family: 'Ubuntu', sans-serif;
         font-size: 21px;
@@ -209,11 +210,11 @@ a {
     }
 
     .pizza {
-      min-height: 480px;
+      min-height: 520px;
 
       .order-button {
         .price-big {
-//          display: none;
+          //          display: none;
         }
       }
 
@@ -226,7 +227,7 @@ a {
     }
 
     .product {
-      min-height: 480px;
+      min-height: 520px;
     }
 
     h1 {
@@ -247,6 +248,11 @@ a {
 
     .body {
 
+    }
+
+    p {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 16px;
     }
   }
 

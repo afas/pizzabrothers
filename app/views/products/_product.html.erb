@@ -6,8 +6,8 @@
       <%= link_to "Изменить", edit_product_path(product) %> / <%= link_to 'Удалить', product, method: :delete, data: {confirm: 'Удаляем?'} %>
   <% end %>
 
-  <div class="order-button">
-    Заказать за <span class="price" id="<%= product.id %>"><%= product.price %><%= content_tag :p, "p", class: "money" %></span>
+  <div class="order-button" onclick="addProduct('<%= add_to_cart_path(product.id, 0) %>');">
+    Заказать за <span class="price"><%= product.price %> &#8399;</span>
   </div>
 
 </div>

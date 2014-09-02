@@ -5,8 +5,9 @@ class ProductSize
 
   def self.collection
     list = [
-        ProductSize.new(:name => 'Стандартная (30см)', :code => 0),
-        ProductSize.new(:name => 'Большая (40см)', :code => 1)
+        ProductSize.new(:name => '', :code => 0),
+        ProductSize.new(:name => 'Стандартная (30см)', :code => 1),
+        ProductSize.new(:name => 'Большая (40см)', :code => 2)
     ]
 
     list
