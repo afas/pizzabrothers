@@ -1,3 +1,4 @@
+#encoding: utf-8
 class OrdersController < ApplicationController
   before_filter do
     resource = controller_path.singularize.gsub('/', '_').to_sym

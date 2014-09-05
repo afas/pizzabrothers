@@ -1,3 +1,4 @@
+#encoding: utf-8
 class CartController < ApplicationController
   def my_cart
     @order = Order.new
