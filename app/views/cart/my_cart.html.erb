@@ -1,10 +1,8 @@
-<h1>Ваш заказ: <%= content_tag :span, @cart.products_price, class: 'total-price' %>&#8399;</h1>
+<h1>Ваш заказ: <%= content_tag :span, @cart.products_price, class: 'total-price', id: 'total-price' %>Р</h1>
+<!--&#8399;-->
 
-<% if @cart.products_count == 0 %>
-    <p>Вы ничего не заказали, предлагаем <%= link_to "выбрать например пиццу", root_path %>.</p>
-<% else %>
-    <%= render "cart/cart_items", order_items: @cart.items unless @cart.products_count == 0 %>
-<% end %>
+<%= render "cart/empty_cart" %>
+<%= render "cart/cart_items", order_items: @cart.items unless @cart.products_count == 0 %>
 
 <%= content_tag :h2, "Доставка и оплата" %>
 <p>

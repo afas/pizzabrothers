@@ -1,6 +1,6 @@
 <h1>Список заказов <%= link_to '+', new_order_path %></h1>
 
-<span class="orders-new">Новые</span><span class="orders-closed"><%= link_to "Выполненные", closed_orders_path %></span>
+<span class="orders-new"><%= link_to "Новые", orders_path %></span><span class="orders-closed">Выполненные</span>
 
 <table class="orders-new">
   <tbody>

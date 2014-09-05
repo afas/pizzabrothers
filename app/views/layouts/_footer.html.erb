@@ -2,8 +2,11 @@
   <div class="copyleft">
     <ul>
       <%= content_tag :li, link_to("Пиццерия", "/about") %>
-      <%= content_tag :li, link_to("Заказы", orders_path) if can?(:manage, :all) %>
+      <%= content_tag :li, link_to("Параметры пиццы", "/pizza_options") %>
       <%= content_tag :li, link_to("Написать предложение", "#feedback") %>
+      <%= content_tag :li, link_to("Заказы", orders_path) if can?(:manage, :all) %>
+      <%= content_tag :li, link_to("Конструктор", builder_products_path) if can?(:manage, :all) %>
+      <%= content_tag :li, link_to("Добавить продукт", new_product_path) if can?(:manage, :all) %>
     </ul>
   </div>
 

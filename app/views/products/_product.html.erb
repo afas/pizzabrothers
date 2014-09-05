@@ -1,5 +1,5 @@
 <div class="menu-item product">
-  <%= image_tag product.photo_url || "salad.png" %>
+  <%= image_tag product.photo_url || "salad.png", alt: "#{Category.by_code(product.category_id)} - #{product.name}", title: "#{Category.by_code(product.category_id)} - #{product.name}" %>
   <%= content_tag :h3, product.name %>
   <%= content_tag :p, product.description %>
   <% if can?(:manage, product) %>
@@ -7,7 +7,8 @@
   <% end %>
 
   <div class="order-button" onclick="addProduct('<%= add_to_cart_path(product.id, 0) %>');">
-    Заказать за <span class="price"><%= product.price %> &#8399;</span>
+    <span class="price"  title="<%= product.name %>">Заказать за <%= product.price %> Р</span>
+    <!--&#8399;-->
   </div>
 
 </div>

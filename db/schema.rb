@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902125813) do
+ActiveRecord::Schema.define(version: 20140904120106) do
 
   create_table "order_items", force: true do |t|
     t.integer  "order_id",      null: false
@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20140902125813) do
     t.string   "email"
     t.integer  "cash_from"
     t.text     "comment"
-    t.integer  "order_status_id"
+    t.integer  "order_status_id", default: 0
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "summ_price"
   end
 
   create_table "products", force: true do |t|

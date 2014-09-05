@@ -1,6 +1,6 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
 <%= content_tag :h1, @static.title %>
-<%= content_tag :div, @static.body, class: "body" %>
+<%= content_tag :div, raw(@static.body), class: "body" %>
 
 <%= link_to 'Изменить', edit_static_path(@static) if can?(:edit, @static) %>

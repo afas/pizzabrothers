@@ -11,12 +11,7 @@
         </div>
     <% end %>
 
-    <!--Имя-->
-    <!--Телефон-->
-    <!--Адрес-->
-    <!--Email-->
-    <!--Сдача с-->
-    <!--Комментарий-->
+    <%= f.hidden_field :summ_price, value: @cart.products_price %>
 
     <div class="field">
       <%= f.label :name %>
@@ -55,6 +50,6 @@
 
     <div class="actions">
       <%= f.submit "Отправить заказ *" %><br/><br/>
-      <%= content_tag :label, raw("* Согласен с <a href='#' target='_blank'>правилами</a> приобретения товара.") %>
+      <%= content_tag :label, raw("* Согласен с <a href='https://docs.google.com/document/d/1AP__fBsdYYTQYnRecNh59EbEHrYzstmp0IDjDpIXBoQ/edit?usp=sharing' target='_blank'>правилами</a> приобретения товара.") %>
     </div>
 <% end %>

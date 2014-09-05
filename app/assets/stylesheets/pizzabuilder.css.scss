@@ -1,0 +1,63 @@
+.pizza_builder {
+  #sauce, #product-size {
+    position: relative;
+
+    background: none repeat scroll 0 0 #f9f9f9;
+    border: medium none;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 65px;
+    margin-top: 5px;
+    width: 100%;
+
+    cursor: pointer;
+  }
+  .sauces, .product-sizes {
+    display: none;
+    position: absolute;
+    top: -10px;
+
+    #sauces, #product-sizes {
+      background: none repeat scroll 0 0 #f9f9f9;
+      border: 2px solid #00a710;
+      border-radius: 8px;
+      margin-top: 10px;
+
+      li {
+        border: medium none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 65px;
+        padding: 0 10px;
+        position: relative;
+        width: 316px;
+        border-bottom: 2px solid #00a710;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .visible {
+    display: block;
+  }
+}
+
+.pizza-builder-place {
+  height: 850px;
+  margin: 0 auto;
+  position: relative;
+  width: 850px;
+  background: url("builder-base.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+
+  .ingridients {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .ingridient-from {
+  }
+
+}

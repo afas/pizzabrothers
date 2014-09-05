@@ -1,0 +1,45 @@
+<div class="check-data">
+  <div class="check-head">
+    <%= image_tag "logo-check.png" %>
+    <p>
+      ИП Никоноров Д.Е.<br/>
+      ОГРНИП: 314440122600024<br/>
+      ИНН: 440203161183<br/>
+      Дата чека: <%= @order.created_at.strftime("%d.%m.%Y %k:%M:%S") %><br/>
+      № чека: <%= sprintf("%010d", @order.id) %>
+    </p>
+  </div>
+  <%= render "orders/check_items", order_items: @order.order_items %>
+  <hr/>
+  <table class="check-result">
+    <tbody>
+    <tr>
+      <td class="name">ИТОГО:</td>
+      <td class="money">руб</td>
+      <td class="price"><%= @order.summ_price %></td>
+    </tr>
+    <tr>
+      <td class="name">Оплачено наличными:</td>
+      <td class="money">руб</td>
+      <td class="price"><%= @order.cash_from.nil? ? @order.summ_price : @order.cash_from %></td>
+    </tr>
+    <tr>
+      <td class="name">Сдача:</td>
+      <td class="money">руб</td>
+      <td class="price"><%= @order.cash_from.nil? ? "0.00" : @order.cash_from - @order.summ_price %></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="check-footer">
+    <p>
+      ПРИЯТНОГО АППЕТИТА!<br/>
+      Телефон: <%= t("check_phone") %><br/>
+      Сайт: <%= root_url %>
+    </p>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <hr/>
+</div>

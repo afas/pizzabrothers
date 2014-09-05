@@ -1,0 +1,10 @@
+<div id="empty-cart" class="empty-cart <%= "invisible" if @cart.products_count > 0 %>">
+  <h3>Вы ничего не заказали, изучите наше меню и акции:</h3>
+  <ul>
+    <%= content_tag :li, link_to("Акции", "/special") %>
+    <% Category.collection(false).each do |category| %>
+        <%= content_tag :li, link_to(category.name, category.link) %>
+    <% end %>
+  </ul>
+  <div class="clear"></div>
+</div>

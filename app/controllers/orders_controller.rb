@@ -1,11 +1,24 @@
 class OrdersController < ApplicationController
+  before_filter do
+    resource = controller_path.singularize.gsub('/', '_').to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.news
   end
+
+  def closed
+    @orders = Order.closed
+  end
+
 
   # GET /orders/1
   # GET /orders/1.json
@@ -38,7 +51,7 @@ class OrdersController < ApplicationController
 
         session[:cart] = nil
 
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Ваш заказ принят!' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -52,7 +65,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to orders_url, notice: 'Заказ успешно обновлен.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -66,7 +79,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Заказ успешно удален.' }
       format.json { head :no_content }
     end
   end
@@ -79,6 +92,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :phone, :address, :email, :cash_from, :comment, :order_status_id, :latitude, :longitude)
+      params.require(:order).permit(:name, :phone, :address, :email, :cash_from, :summ_price, :comment, :order_status_id, :latitude, :longitude)
     end
 end

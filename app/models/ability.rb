@@ -6,7 +6,10 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, :all
+      can :create, Order
+      can :by_link, Product
+      can :short_url, Static
+      # can :read, :all
     end
 
     # The first argument to `can` is the action you are giving the user

@@ -1,0 +1,38 @@
+html, body, .content-container {
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  display: none;
+}
+
+.content {
+  font-family: arial, sans-serif;
+  font-size: 6pt;
+  width: 180px;
+
+  .order-data {
+    display: none;
+  }
+
+  .check-head, .check-footer {
+    text-align: center;
+  }
+
+  table.my-cart {
+    width: 100%;
+  }
+
+  .check-result {
+    width: 100%;
+    .name {
+      width: 70%;
+    }
+
+    .price {
+      text-align: right;
+    }
+  }
+}
+

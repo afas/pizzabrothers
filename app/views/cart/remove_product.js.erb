@@ -1,0 +1,14 @@
+$("#total-count").html(<%= @cart.products_count %>);
+$("#total-price").html(<%= @cart.products_price %>);
+$("#total-price-top").html('<%= @cart.products_price %>p');
+$("#order_summ_price").val(<%= @cart.products_price %>);
+<% if @cart_item_remove %>
+    $("#product_line_<%= @cart_item_id %>").remove();
+<% else %>
+    $("#product_sum_<%= @cart_item_id %>").html('<%= @cart_item.sum %> p');
+    $("#product_<%= @cart_item_id %>").html(<%= @cart_item.product_count %>);
+<% end %>
+
+<% if @cart.products_count == 0 %>
+    $("#empty-cart").removeClass("invisible");
+<% end %>

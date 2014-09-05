@@ -1,5 +1,5 @@
 <div class="menu-item pizza">
-  <%= image_tag pizza.photo_url || "pizza.png" %>
+  <%= image_tag pizza.photo_url || "pizza.png", alt: "#{Category.by_code(pizza.category_id)} - #{pizza.name}", title: "#{Category.by_code(pizza.category_id)} - #{pizza.name}" %>
   <%= content_tag :h3, pizza.name %>
   <%= content_tag :p, pizza.description %>
   <% if can?(:manage, pizza) %>
@@ -7,6 +7,7 @@
   <% end %>
 
   <div class="order-button">
-    Заказать за <span class="price" onclick="addProduct('<%= add_to_cart_path(pizza.id, 1) %>');"><%= pizza.price_classic %></span> / <span class="price price-big" onclick="addProduct('<%= add_to_cart_path(pizza.id, 2) %>');"><%= pizza.price_big %> &#8399;</span>
+    <span class="price" onclick="addProduct('<%= add_to_cart_path(pizza.id, 1) %>');" title="Стандартная пицца 30 см, 450 гр">Заказать за <%= pizza.price_classic %></span> / <span class="price price-big" onclick="addProduct('<%= add_to_cart_path(pizza.id, 2) %>');"  title="Большая пицца 45 см, 700 гр"><%= pizza.price_big %> Р</span>
+    <!--&#8399;-->
   </div>
 </div>

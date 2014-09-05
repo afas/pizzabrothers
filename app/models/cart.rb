@@ -22,11 +22,22 @@ class Cart
 
   def remove_product(product, size_id)
     current_item = @items.detect { |item| item.product == product and item.product_size == size_id }
-    if current_item
+    if current_item && current_item.count == 1
       @items.delete_if { |item| item.product == product and item.product_size == size_id }
       current_item = nil
+    else
+      current_item.set_count(current_item.count - 1)
     end
     current_item
+
+    # current_item = @items.detect { |item| item.product == product and item.product_size == size_id }
+    # unless current_item.nil?
+    #   current_item.increment_count
+    # else
+    #   current_item = CartItem.new(product, size_id)
+    #   @items << current_item
+    # end
+    # current_item
   end
 
   # def set_count(product_count, product, size_id)

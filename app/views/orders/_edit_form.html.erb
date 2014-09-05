@@ -1,15 +1,5 @@
 <%= form_for(@order) do |f| %>
-    <% if @order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-          <ul>
-            <% @order.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+    <%= f.hidden_field :order_status_id, value: 3 %>
 
     <div class="field">
       <%= f.label :name %>
@@ -28,25 +18,35 @@
     </div>
 
     <div class="field">
+      <%= f.label :summ_price %>
+      <br>
+      <%= f.text_field :summ_price %>
+    </div>
+    <div class="field">
       <%= f.label :cash_from %>
       <br>
       <%= f.number_field :cash_from %>
     </div>
-    <div class="field">
+    <div class="field no-margin-right">
       <%= f.label :email %>
       <br>
       <%= f.text_field :email %>
     </div>
 
     <div class="clear"></div>
+
+    <div id="map" class="field"></div>
+
     <div class="field">
       <%= f.label :comment %>
       <br>
       <%= f.text_area :comment %>
     </div>
+
     <div class="clear"></div>
 
     <div class="actions">
-      <%= f.submit "Создать заказ" %><br/><br/>
+      <span class="print-check" onclick="window.print();">Печать чека</span>
+      <%= f.submit "Сохранить" %>
     </div>
 <% end %>

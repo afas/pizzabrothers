@@ -5,6 +5,7 @@ User.create(email: "den_27021990@mail.ru", password: "buizelik", role: 0)
 Static.create(title: "Акции", short_url: "special")
 Static.create(title: "Доставка и оплата", short_url: "shipping_and_payment")
 Static.create(title: "Пиццерия", short_url: "about")
+Static.create(title: "Параметры пиццы", short_url: "pizza_options")
 
 Product.create(name: "Маргарита", description: "Красный соус, помидоры, моцарелла", category_id: 1)
 Product.create(name: "Дары моря", description: "Красный соус, мидии, креветки, семга, оливки, моцарелла", category_id: 1)

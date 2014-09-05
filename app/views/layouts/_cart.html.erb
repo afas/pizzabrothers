@@ -1,2 +1,2 @@
 <%= link_to "Заказ", my_cart_path %>
-<%= content_tag :span, @cart.products_count, id: "total-count" %>
+<%= content_tag :span, @cart.products_count, id: "total-count" %><%= content_tag :span, "#{@cart.products_price}р", id: "total-price-top" %>

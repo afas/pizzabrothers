@@ -10,17 +10,16 @@ class OrderItem < ActiveRecord::Base
     order_item.product_count = cart_item.product_count
     order_item.product_size = cart_item.product_size
     order_item.save
-    # return order
   end
 
   def price
     case self.product_size
+      when 0
+        return self.product.price
       when 1
-        self.product.price_classic
+        return self.product.price_classic
       when 2
-        self.product.price_big
-      else
-        self.product.price
+        return self.product.price_big
     end
   end
 

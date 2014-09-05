@@ -1,0 +1,107 @@
+<%= form_for(@product, html: {class: 'pizza_builder'}) do |f| %>
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.hidden_field :category_id, value: 10 %>
+    <%= f.hidden_field :description %>
+    <%= f.hidden_field :price_classic %>
+    <%= f.hidden_field :price_big %>
+
+    <br/>
+    <br/>
+    <div class="clear"></div>
+
+    <div class="field">
+      <%= f.label "Как вы назовете пиццу" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= label_tag "Выберите размер пиццы" %>
+      <%#= text_field_tag :size %>
+      <div id="product-size">
+        <div class="link">
+          <span>не выбран</span>
+        </div>
+        <div class="product-sizes">
+          <ul id="product-sizes">
+            <% ProductSize.collection(true).each do |product_size| %>
+                <%= content_tag :li, product_size.name, short_name: product_size.short_name %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="field no-margin-right">
+      <%= label_tag "Выберите соус" %>
+      <%#= text_field_tag :sauce %>
+      <div id="sauce">
+        <div class="link">
+          <span>не выбран</span>
+        </div>
+        <div class="sauces">
+          <ul id="sauces">
+            <% Sauce.collection.each do |sauce| %>
+                <%= content_tag :li, sauce.name, id: "sauce_#{sauce.code}" %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <h2>Выберите необходимые ингридиенты</h2>
+
+    <div class="pizza-builder-place">
+      <%
+         place_size = 700
+         place_to_size = 350
+
+         radius = place_size/2
+         radius_to = place_to_size/2
+
+         step = 360/Ingridient.collection.size
+         pi = 3.1415926535
+
+         angle_start = -45
+
+         x_start = 355
+         y_start = 355
+      %>
+
+      <% Ingridient.collection.each_with_index do |ingridient, i| %>
+          <%
+             angle = angle_start + step * i / 180.0 * pi
+             x = x_start + radius * Math.sin(angle)
+             y = y_start + radius * Math.cos(angle)
+             x_to = x_start + radius_to * Math.sin(angle)
+             y_to = y_start + radius_to * Math.cos(angle)
+          %>
+          <%= image_tag ingridient.image, alt: ingridient.name, title: "Добавить #{ingridient.name}", id: "#{ingridient.code}", class: 'ingridients ingridient-from', style: "left:#{x.to_int}px; bottom:#{y.to_int}px" %>
+          <%= image_tag ingridient.image, alt: ingridient.name, title: "Убрать #{ingridient.name}", id: "#{ingridient.code}_to", class: 'ingridients ingridient-to invisible', style: "left:#{x_to.to_int}px; bottom:#{y_to.to_int}px" %>
+      <% end %>
+    </div>
+
+    <div class="clear"></div>
+    <div class="field">
+      <%= f.label "Состав пиццы, описание рецептуры" %>
+      <br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="clear"></div>
+
+    <div class="actions">
+      <%= f.submit "Сохранить рецепт и добавить в заказ", class: "save-builder" %>
+    </div>
+
+<% end %>

@@ -12,6 +12,10 @@ class CartItem
     @product_count += 1
   end
 
+  # def decrement_count
+  #   @product_count -= 1
+  # end
+
   def set_count(product_count)
     @product_count = product_count.to_i
   end

@@ -1,12 +1,12 @@
 <table class="my-cart">
   <tbody>
-  <% order_items.each do |cart_item| %>
+  <% order_items.each_with_index do |cart_item, i| %>
       <tr>
-        <td class="count"><%= cart_item.product_count %></td>
+        <td class="index"><%= 1+i %></td>
         <td class="name"><%= cart_item.product.name %></td>
         <td class="comment"><%= ProductSize.by_code(cart_item.product_size) %></td>
-        <td class="price"><%= cart_item.price %> Р</td>
-        <!--&#8399;-->
+        <td class="count"><%= cart_item.product_count %>х</td>
+        <td class="price"><%= cart_item.price %></td>
       </tr>
   <% end %>
   </tbody>

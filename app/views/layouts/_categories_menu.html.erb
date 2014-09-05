@@ -1,6 +1,6 @@
 <div class="categories-menu">
   <ul>
-    <% Category.collection.each do |category| %>
+    <% Category.collection(false).each do |category| %>
         <%= content_tag :li, link_to(category.name, category.link) %>
     <% end %>
   </ul>

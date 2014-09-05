@@ -1,4 +1,4 @@
-form.edit_product, form.edit_static {
+form.edit_product, form.edit_static, form.new_product {
   margin-top: 25px;
 
   #error_explanation h3 {
@@ -36,11 +36,22 @@ form.edit_product, form.edit_static {
     margin-right: 15px;
     font-size: 13px;
     font-family: 'Ubuntu', sans-serif;
+    vertical-align: top;
   }
 
   .field .short {
     width: 600px;
     height: 100px;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid #DBDBDB;
+    border-radius: 2px;
+    color: #505050;
+  }
+
+  .field .body {
+    width: 600px;
+    height: 500px;
     margin: 0 !important;
     padding: 0 !important;
     border: 1px solid #DBDBDB;

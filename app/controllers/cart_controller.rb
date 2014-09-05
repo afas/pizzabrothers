@@ -1,21 +1,24 @@
 class CartController < ApplicationController
   def my_cart
     @order = Order.new
-
-
   end
 
   def add_product
     product = Product.find(params[:product_id].to_i)
-    @cart.add_product(product, params[:size_id].to_i)
+    @cart_item = @cart.add_product(product, params[:size_id].to_i)
+    @cart_item_id = "#{@cart_item.product_id}_#{@cart_item.product_size}"
     render :layout => false
   end
 
   def remove_product
     @cart_item_id = ""
+
     product = Product.find(params[:product_id].to_i)
-    cart_item = @cart.remove_product(product, params[:size_id].to_i)
-    @cart_item_id = "#{product.id}-#{params[:size_id]}" if cart_item.nil?
+    @cart_item = @cart.remove_product(product, params[:size_id].to_i)
+
+    @cart_item_id = "#{product.id}_#{params[:size_id]}"
+    @cart_item_remove = true if @cart_item.nil?
+
     render :layout => false
   end
 
@@ -25,6 +28,7 @@ class CartController < ApplicationController
   end
 
   def pizza_builder
+    @product = Product.new
   end
 
   # def set_count
