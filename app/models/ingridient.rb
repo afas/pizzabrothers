@@ -43,7 +43,7 @@ class Ingridient
   def initialize(hash)
     self.code = hash[:code]
     self.name = hash[:name]
-    self.image = "/assets/ingridient/" + hash[:image]
+    self.image = "/ingridient/" + hash[:image]
     self.price = hash[:price]
   end
 
