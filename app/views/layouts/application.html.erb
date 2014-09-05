@@ -2,7 +2,15 @@
 <html>
 <head>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <title>Pizzabrothers</title>
+  <title><%= t("title") %></title>
+
+  <meta name="description" content="<%= t("description") %>">
+  <meta name="keywords" content="<%= t("keywords") %>">
+  <meta name="author" content="Pizza Brothers">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
   <%= stylesheet_link_tag 'application', media: 'screen' %>
   <%= stylesheet_link_tag 'print', media: 'print' %>
   <%= javascript_include_tag 'application' %>
