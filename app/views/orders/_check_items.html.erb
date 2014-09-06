@@ -6,7 +6,7 @@
         <td class="name"><%= cart_item.product.name %></td>
         <td class="comment"><%= ProductSize.by_code(cart_item.product_size) %></td>
         <td class="count"><%= cart_item.product_count %>х</td>
-        <td class="price"><%= cart_item.price %></td>
+        <td class="price"><%= cart_item.price %>.00</td>
       </tr>
   <% end %>
   </tbody>
