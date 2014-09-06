@@ -20,17 +20,17 @@
     <tr>
       <td class="name">ИТОГО:</td>
       <td class="money">руб</td>
-      <td class="price"><%= @order.summ_price %></td>
+      <td class="price"><%= @order.summ_price %>.00</td>
     </tr>
     <tr>
       <td class="name">Оплачено наличными:</td>
       <td class="money">руб</td>
-      <td class="price"><%= @order.cash_from.nil? || @order.cash_from == 0 ? @order.summ_price : @order.cash_from %></td>
+      <td class="price"><%= @order.cash_from.nil? || @order.cash_from == 0 ? @order.summ_price : @order.cash_from %>.00</td>
     </tr>
     <tr>
       <td class="name">Сдача:</td>
       <td class="money">руб</td>
-      <td class="price"><%= @order.cash_from.nil? || @order.cash_from == 0 ? "0.00" : @order.cash_from - @order.summ_price %></td>
+      <td class="price"><%= @order.cash_from.nil? || @order.cash_from == 0 ? "0" : @order.cash_from - @order.summ_price %>.00</td>
     </tr>
     </tbody>
   </table>
