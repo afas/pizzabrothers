@@ -64,10 +64,11 @@ a {
 
     font-family: 'Ubuntu', sans-serif;
     height: 140px;
-    position: fixed;
+    position: absolute;
+//    position: fixed;
     text-align: center;
     text-transform: uppercase;
-    top: 0;
+    top: -140px;
     width: 1140px;
 
     .right-menu {
