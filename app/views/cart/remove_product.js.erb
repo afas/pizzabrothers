@@ -1,7 +1,7 @@
 $("#total-count").html(<%= @cart.products_count %>);
-$("#total-price").html(<%= @cart.products_price %>);
+$("#total-price").html(<%= @cart.total_price %>);
 $("#total-price-top").html('<%= @cart.products_price %>p');
-$("#order_summ_price").val(<%= @cart.products_price %>);
+$("#order_summ_price").val(<%= @cart.total_price %>);
 <% if @cart_item_remove %>
     $("#product_line_<%= @cart_item_id %>").remove();
 <% else %>

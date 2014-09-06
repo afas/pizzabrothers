@@ -4,7 +4,7 @@
       <tr id="product_line_<%= cart_item.product_id %>_<%= cart_item.product_size %>">
         <td class="count"><span onclick="removeProduct('<%= remove_from_cart_path(cart_item.product_id, cart_item.size_id) %>');">-</span> <span id="product_<%= cart_item.product_id %>_<%= cart_item.product_size %>"><%= cart_item.count %></span> <span onclick="addProduct('<%= add_to_cart_path(cart_item.product_id, cart_item.size_id) %>');">+</span></td>
         <td class="name"><%= cart_item.name %></td>
-        <td class="comment"><%= cart_item.size %></td>
+        <td class="comment"><%= cart_item.size %><%= content_tag :span, ", мой рецепт", title: cart_item.product.description if cart_item.product.category_id == 10 %></td>
         <td class="price" id="product_sum_<%= cart_item.product_id %>_<%= cart_item.product_size %>"><%= cart_item.sum %> Р</td>
         <!--&#8399;-->
       </tr>

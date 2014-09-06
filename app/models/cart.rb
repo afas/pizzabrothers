@@ -66,11 +66,18 @@ class Cart
   end
 
   def delivery_price
-    300.to_f
+    100.to_f
   end
 
   def total_price
-    products_price.to_f + delivery_price.to_f
+    case products_price.to_f
+      when 0
+        0
+      when 1 .. 500.to_f
+        products_price.to_f + delivery_price.to_f
+      else
+        products_price.to_f
+    end
   end
 
 end

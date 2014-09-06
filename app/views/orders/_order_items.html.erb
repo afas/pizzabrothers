@@ -3,7 +3,7 @@
   <% order_items.each do |cart_item| %>
       <tr>
         <td class="count"><%= cart_item.product_count %></td>
-        <td class="name"><%= cart_item.product.name %></td>
+        <td class="name"><%= cart_item.product.name %><%= raw "<br/>Состав: #{cart_item.product.description}" if cart_item.product.category_id == 10 %></td>
         <td class="comment"><%= ProductSize.by_code(cart_item.product_size) %></td>
         <td class="price"><%= cart_item.price %> Р</td>
         <!--&#8399;-->

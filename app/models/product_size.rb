@@ -3,6 +3,7 @@ class ProductSize
   attr_accessor :name
   attr_accessor :code
   attr_accessor :short_name
+  attr_accessor :price
 
   def self.collection(pizza_only)
     list = []
@@ -12,8 +13,8 @@ class ProductSize
     end
 
     list += [
-        ProductSize.new(:name => 'Стандартная (30см)', :code => 1, :short_name => "classic"),
-        ProductSize.new(:name => 'Большая (45см)', :code => 2, :short_name => "big")
+        ProductSize.new(:name => 'Стандартная (30см)', :code => 1, :short_name => "classic", :price => 130),
+        ProductSize.new(:name => 'Большая (45см)', :code => 2, :short_name => "big", :price => 150)
     ]
 
     list
@@ -35,6 +36,7 @@ class ProductSize
     self.name = hash[:name]
     self.code = hash[:code]
     self.short_name = hash[:short_name]
+    self.price = hash[:price]
   end
 
 end

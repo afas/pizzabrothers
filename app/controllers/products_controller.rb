@@ -45,15 +45,35 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to Category.link_by_code(@product.category_id), notice: 'Продукт успешно создан.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+    if @product.category_id == 10
+      size_id = @product.price_big
+      case size_id
+        when 1
+          @product.price_classic = @product.price
+          @product.price_big = 0
+        when 2
+          @product.price_classic = 0
+          @product.price_big = @product.price
+      end
+      @product.price = 0
+      respond_to do |format|
+        if @product.save
+          @cart.add_product(@product, size_id)
+          format.html { redirect_to my_cart_path }
+        end
+      end
+    else
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to Category.link_by_code(@product.category_id), notice: 'Продукт успешно создан.' }
+          format.json { render :show, status: :created, location: @product }
+        else
+          format.html { render :new }
+          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # PATCH/PUT /products/1
@@ -81,13 +101,13 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :description, :photo, :price, :price_classic, :price_big, :category_id, :product_order)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :description, :photo, :price, :price_classic, :price_big, :category_id, :product_order)
+  end
 end

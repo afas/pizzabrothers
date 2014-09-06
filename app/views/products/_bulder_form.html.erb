@@ -11,10 +11,9 @@
         </div>
     <% end %>
 
-    <%= f.hidden_field :category_id, value: 10 %>
-    <%= f.hidden_field :description %>
-    <%= f.hidden_field :price_classic %>
-    <%= f.hidden_field :price_big %>
+    <%= f.hidden_field :category_id, value: 10 %><!--category id-->
+    <%= f.hidden_field :price %><!--цена-->
+    <%= f.hidden_field :price_big %><!--размер id-->
 
     <br/>
     <br/>
@@ -35,7 +34,7 @@
         <div class="product-sizes">
           <ul id="product-sizes">
             <% ProductSize.collection(true).each do |product_size| %>
-                <%= content_tag :li, product_size.name, short_name: product_size.short_name %>
+                <%= content_tag :li, product_size.name, code: product_size.code, price: product_size.price %>
             <% end %>
           </ul>
         </div>
@@ -87,18 +86,28 @@
              x_to = x_start + radius_to * Math.sin(angle)
              y_to = y_start + radius_to * Math.cos(angle)
           %>
-          <%= image_tag ingridient.image, alt: ingridient.name, title: "Добавить #{ingridient.name}", id: "#{ingridient.code}", class: 'ingridients ingridient-from', style: "left:#{x.to_int}px; bottom:#{y.to_int}px" %>
-          <%= image_tag ingridient.image, alt: ingridient.name, title: "Убрать #{ingridient.name}", id: "#{ingridient.code}_to", class: 'ingridients ingridient-to invisible', style: "left:#{x_to.to_int}px; bottom:#{y_to.to_int}px" %>
+          <%= image_tag ingridient.image, alt: ingridient.name, price: ingridient.price, title: "Добавить #{ingridient.name}", id: "#{ingridient.code}", class: 'ingridients ingridient-from', style: "left:#{x.to_int}px; bottom:#{y.to_int}px" %>
+          <%= image_tag ingridient.image, alt: ingridient.name, price: ingridient.price, title: "Убрать #{ingridient.name}", id: "#{ingridient.code}_to", class: 'ingridients ingridient-to invisible', style: "left:#{x_to.to_int}px; bottom:#{y_to.to_int}px" %>
       <% end %>
     </div>
 
     <div class="clear"></div>
-    <div class="field">
-      <%= f.label "Состав пиццы, описание рецептуры" %>
+    <div class="field comments-label">
+      <%= f.label "Состав пиццы, описание рецептуры. После выбора ингридиентов уточните их количество (х2, x3)" %>
       <br>
       <%= f.text_area :description %>
     </div>
+
     <div class="clear"></div>
+
+    <h2>Стоимость пиццы <span id="total-price" class="total-price">0</span> р</h2>
+
+
+    <br/>
+    <br/>
+
+    <div class="clear"></div>
+
 
     <div class="actions">
       <%= f.submit "Сохранить рецепт и добавить в заказ", class: "save-builder" %>

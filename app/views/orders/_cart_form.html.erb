@@ -11,7 +11,7 @@
         </div>
     <% end %>
 
-    <%= f.hidden_field :summ_price, value: @cart.products_price %>
+    <%= f.hidden_field :summ_price, value: @cart.total_price %>
 
     <div class="field">
       <%= f.label :name %>

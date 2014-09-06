@@ -40,6 +40,8 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    @order.cash_from = 0 if @order.summ_price.to_f > @order.cash_from.to_f
+
     respond_to do |format|
       if @order.save
         @order.add_order_items_from_cart(@cart)
