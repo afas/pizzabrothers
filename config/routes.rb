@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders do
     collection do
       get 'closed', as: :closed
+      get 'get_new'
     end
   end
 

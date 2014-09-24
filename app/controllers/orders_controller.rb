@@ -16,6 +16,11 @@ class OrdersController < ApplicationController
     @orders = Order.news
   end
 
+  def get_new
+    @orders = Order.news
+    render layout: false
+  end
+
   def closed
     @orders = Order.closed
   end

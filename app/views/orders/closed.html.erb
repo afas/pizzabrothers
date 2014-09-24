@@ -3,16 +3,5 @@
 <span class="orders-new"><%= link_to "Новые", orders_path %></span><span class="orders-closed">Выполненные</span>
 
 <table class="orders-new">
-  <tbody>
-  <% @orders.each do |order| %>
-      <tr>
-        <td><%= link_to order.created_at.strftime("%k:%M %d.%m"), edit_order_path(order) %></td>
-        <td><%= link_to sprintf("%04d", order.id), edit_order_path(order) %></td>
-        <td><%= link_to "#{order.name} / #{order.phone} / #{order.address}", edit_order_path(order) %></td>
-        <td><%= order.summ_price %>р</td>
-        <td>х<%= order.order_items.size %></td>
-        <td><%= link_to 'Удалить', order, method: :delete, data: {confirm: 'Точно?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
+  <%= render "orders/orders_list" %>
 </table>

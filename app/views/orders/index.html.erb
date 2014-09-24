@@ -3,16 +3,13 @@
 <span class="orders-new">Новые</span><span class="orders-closed"><%= link_to "Выполненные", closed_orders_path %></span>
 
 <table class="orders-new">
-  <tbody>
-  <% @orders.each do |order| %>
-      <tr>
-        <td><%= link_to order.created_at.strftime("%k:%M %d.%m"), edit_order_path(order) %></td>
-        <td><%= link_to sprintf("%04d", order.id), edit_order_path(order) %></td>
-        <td><%= link_to "#{order.name} / #{order.phone} / #{order.address}", edit_order_path(order) %></td>
-        <td><%= order.summ_price %>р</td>
-        <td>х<%= order.order_items.size %></td>
-        <td><%= link_to 'Удалить', order, method: :delete, data: {confirm: 'Точно?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
+  <%= render "orders/orders_list" %>
 </table>
+
+<script type="application/javascript">
+    window.setInterval(function () {
+        $.get("/orders/get_new", function (data) {
+            $("table.orders-new").html(data);
+        });
+    }, 5000);
+</script>
