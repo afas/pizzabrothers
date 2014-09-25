@@ -65,7 +65,7 @@ a {
     font-family: 'Ubuntu', sans-serif;
     height: 140px;
     position: absolute;
-//    position: fixed;
+    //    position: fixed;
     text-align: center;
     text-transform: uppercase;
     top: -140px;
@@ -88,7 +88,11 @@ a {
         background: none repeat scroll 0 0 #be0002;
         border-radius: 5px;
         color: #ffffff;
-        margin-left: 70px;
+        font-size: 16px;
+        letter-spacing: -1px;
+        line-height: 36px;
+        margin-left: 72px;
+        margin-top: 24px;
         padding: 7px 20px;
       }
 
@@ -263,6 +267,7 @@ a {
 
     h1 {
       font-size: 55px;
+      line-height: 65px;
       font-family: 'Ubuntu', sans-serif;
       color: #292929;
       text-transform: uppercase;
@@ -278,7 +283,10 @@ a {
     }
 
     .body {
-
+      p {
+        font-size: 21px;
+        line-height: 35px;
+      }
     }
 
     p {
