@@ -3,7 +3,7 @@
     <ul>
       <%= content_tag :li, link_to("Пиццерия", "/about") %>
       <%= content_tag :li, link_to("Параметры пиццы", "/pizza_options") %>
-      <%= content_tag :li, link_to("Написать предложение", "http://vk.com/pizzabrotherss", target: "_blank") %>
+      <%= content_tag :li, link_to("Написать предложение", "http://vk.com/topic-78048530_30545312", target: "_blank") %>
       <%= content_tag :li, link_to("Заказы", orders_path) if can?(:manage, :all) %>
       <%= content_tag :li, link_to("Конструктор", builder_products_path) if can?(:manage, :all) %>
       <%= content_tag :li, link_to("Добавить продукт", new_product_path) if can?(:manage, :all) %>
@@ -11,7 +11,11 @@
     </ul>
   </div>
 
+
   <div class="copyright">
+    <%= link_to "Pizza Brothers Vkontakte", "http://vk.com/club78048530", target: "_blank", class: :vk %>
+    <%= link_to "Pizza Brothers Instagram", "http://instagram.com", target: "_blank", class: :instagram %>
+
     Pizza Brothers &copy; 2014
   </div>
 </footer>
