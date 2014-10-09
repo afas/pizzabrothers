@@ -73,7 +73,7 @@ class Cart
     case products_price.to_f
       when 0
         0
-      when 1 .. 500.to_f
+      when 1 .. 499.to_f
         products_price.to_f + delivery_price.to_f
       else
         products_price.to_f
